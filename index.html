@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="QUIZ//NEXUS - Interactive multiple-choice quiz application"
+    >
+
+    <title>QUIZ//NEXUS</title>
+
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div class="background">
+
+        <div class="noise"></div>
+
+        <div class="glow glow-one"></div>
+
+        <div class="glow glow-two"></div>
+
+        <div class="grid"></div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOP NAVIGATION
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <div>
+
+                <h1>QUIZ<span>//</span>NEXUS</h1>
+
+                <p>KNOWLEDGE • PRECISION • REACTION</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="session">
+
+            <span class="session-dot"></span>
+
+            LIVE SESSION
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN APPLICATION
+    ====================================================== -->
+
+    <main class="app">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div>
+
+                <span class="eyebrow">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    KNOWLEDGE CHALLENGE / 03
+
+                </span>
+
+
+                <h2>
+
+                    How much do
+                    <span>you know?</span>
+
+                </h2>
+
+
+                <p>
+
+                    A fast-paced interactive quiz designed
+                    to test knowledge, accuracy and reaction.
+
+                </p>
+
+            </div>
+
+
+            <div class="hero-meta">
+
+                <div>
+
+                    <span>QUESTIONS</span>
+
+                    <strong id="totalQuestions">
+                        10
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>MODE</span>
+
+                    <strong>
+                        MIXED
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUIZ AREA
+        ================================================== -->
+
+        <section
+            class="quiz-layout"
+            id="quizScreen"
+        >
+
+
+            <!-- =============================================
+                 QUESTION PANEL
+            ============================================== -->
+
+            <div class="question-panel">
+
+
+                <!-- Question top -->
+
+                <div class="question-top">
+
+                    <div class="question-number">
+
+                        <span>QUESTION</span>
+
+                        <strong id="questionNumber">
+                            01
+                        </strong>
+
+                    </div>
+
+
+                    <div class="question-meta">
+
+                        <span
+                            class="difficulty"
+                            id="difficulty"
+                        >
+                            MEDIUM
+                        </span>
+
+
+                        <span
+                            class="category"
+                            id="category"
+                        >
+                            TECHNOLOGY
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Progress -->
+
+                <div class="progress-area">
+
+                    <div class="progress-label">
+
+                        <span>PROGRESS</span>
+
+                        <span id="progressText">
+                            1 / 10
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-track">
+
+                        <div
+                            class="progress-fill"
+                            id="progressFill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Question -->
+
+                <div class="question-content">
+
+                    <div
+                        class="question-type"
+                        id="questionType"
+                    >
+                        SINGLE SELECT
+                    </div>
+
+
+                    <h3 id="questionText">
+                        Loading question...
+                    </h3>
+
+
+                    <p
+                        class="question-hint"
+                        id="questionHint"
+                    >
+                        Select one answer.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Answer area -->
+
+                <div
+                    class="answers"
+                    id="answers"
+                >
+                </div>
+
+
+
+                <!-- Fill blank -->
+
+                <div
+                    class="fill-area"
+                    id="fillArea"
+                >
+
+                    <div class="input-wrapper">
+
+                        <span class="input-prefix">
+                            ANSWER //
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="fillInput"
+                            placeholder="Type your answer..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Bottom controls -->
+
+                <div class="question-controls">
+
+                    <div class="shortcut-hint">
+
+                        <span>
+                            <kbd>1</kbd>
+                            <kbd>2</kbd>
+                            <kbd>3</kbd>
+                            <kbd>4</kbd>
+                        </span>
+
+                        <small>
+                            Select
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button"
+                        id="nextButton"
+                    >
+
+                        <span id="nextText">
+                            CONFIRM ANSWER
+                        </span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 SIDE PANEL
+            ============================================== -->
+
+            <aside class="side-panel">
+
+
+                <!-- Timer -->
+
+                <div class="timer-card">
+
+                    <div class="timer-header">
+
+                        <span>
+
+                            <i class="fa-regular fa-clock"></i>
+
+                            TIME LEFT
+
+                        </span>
+
+
+                        <span id="timerStatus">
+                            ACTIVE
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="timer"
+                        id="timer"
+                    >
+                        00:20
+                    </div>
+
+
+                    <div class="timer-bar">
+
+                        <div
+                            id="timerFill"
+                            class="timer-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Streak -->
+
+                <div class="streak-card">
+
+                    <div class="streak-icon">
+
+                        <i class="fa-solid fa-fire"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>CURRENT STREAK</span>
+
+                        <strong id="streak">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="streak-best">
+
+                        BEST
+
+                        <strong id="bestStreak">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Mission -->
+
+                <div class="mission-card">
+
+                    <div class="card-heading">
+
+                        <span>MISSION DATA</span>
+
+                        <i class="fa-solid fa-crosshairs"></i>
+
+                    </div>
+
+
+                    <div class="mission-row">
+
+                        <span>ACCURACY</span>
+
+                        <strong id="accuracy">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="mission-row">
+
+                        <span>ANSWERED</span>
+
+                        <strong id="answered">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="mission-row">
+
+                        <span>SCORE</span>
+
+                        <strong id="score">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Tip -->
+
+                <div class="tip-card">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+
+                    <div>
+
+                        <span>QUICK TIP</span>
+
+                        <p id="tip">
+                            Trust your first instinct,
+                            but read the question carefully.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESULT SCREEN
+        ================================================== -->
+
+        <section
+            class="result-screen"
+            id="resultScreen"
+        >
+
+
+            <div class="result-header">
+
+                <span class="eyebrow">
+
+                    <i class="fa-solid fa-flag-checkered"></i>
+
+                    SESSION COMPLETE
+
+                </span>
+
+
+                <h2>
+                    Challenge <span>complete.</span>
+                </h2>
+
+
+                <p>
+                    Here's how your session went.
+                </p>
+
+            </div>
+
+
+
+            <!-- Score -->
+
+            <div class="score-card">
+
+                <div class="score-ring">
+
+                    <div>
+
+                        <span id="finalScore">
+                            0
+                        </span>
+
+                        <small>
+                            POINTS
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="score-summary">
+
+                    <span>FINAL ACCURACY</span>
+
+                    <strong id="finalAccuracy">
+                        0%
+                    </strong>
+
+
+                    <p id="resultMessage">
+                        Session complete.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Stats -->
+
+            <div class="result-stats">
+
+                <div>
+
+                    <span>CORRECT</span>
+
+                    <strong id="correctCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>INCORRECT</span>
+
+                    <strong id="wrongCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>BEST STREAK</span>
+
+                    <strong id="finalBestStreak">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>QUESTIONS</span>
+
+                    <strong id="finalQuestions">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Review -->
+
+            <div class="review-section">
+
+                <div class="review-heading">
+
+                    <div>
+
+                        <span class="panel-label">
+                            ANSWER REVIEW
+                        </span>
+
+                        <p>
+                            See what you answered.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="review-list"
+                    id="reviewList"
+                ></div>
+
+            </div>
+
+
+
+            <button
+                class="restart-button"
+                id="restartButton"
+            >
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                START NEW SESSION
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER FEATURES
+        ================================================== -->
+
+        <section class="features">
+
+            <div>
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                <span>MIXED QUESTION TYPES</span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <span>REAL-TIME FEEDBACK</span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-chart-simple"></i>
+
+                <span>PERFORMANCE TRACKING</span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <span>
+            QUIZ//NEXUS — 2026
+        </span>
+
+
+        <span>
+            SKILLCRAFT TECHNOLOGY / TASK 03
+        </span>
+
+
+        <span>
+            LEARN. REACT. IMPROVE.
+        </span>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
